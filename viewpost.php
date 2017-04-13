@@ -19,10 +19,7 @@ if($row['postID'] == ''){
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
-    
-    
-    <head>
+<head>
     <meta charset="utf-8">
     <title>Blog - <?php echo $row['postTitle'];?></title>
     <!--<link rel="stylesheet" href="style/normalize.css">

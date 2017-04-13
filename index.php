@@ -1,73 +1,45 @@
-<?php
-
-include('Templates/EditorPageHeader.php'); 
-  error_reporting(E_ALL & ~E_NOTICE); //report all errors except E_NOTICE
-?>
-
+<?php require('includes/config.php'); 
+require_once('Templates/EditorPageHeader.php');?>
 <!DOCTYPE html>
-<html>
-  <head>
-      <meta charset="UTF-8">
-      <title>Simple Blog</title>
-  </head>
-  <body>
-    <h1 style="text-align: center";>My GrandmaLife Blog</h1>
-    <?php
-
-    include_once("connection.php");
-
-    try {
-      $conn = new PDO($dsn, $user, $password, $options);
-      $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-        $statement = $conn->query("SELECT * FROM blogPosts");
-        /*$stmt->bindParam(':title', $title); //I want to bind these parameters.
-        $stmt->bindParam(':subtitle', $subtitle);
-        $stmt->bindParam(':post', $post);
-        $stmt->bindParam(':tags', $tags);*/
-
-      foreach ($statement as $row) {
-?>
-    <h2><?php echo $row[1]; ?> - <small><?php echo $row[2]; ?></small></h2>
-    <p><?php echo $row[3]; ?></p>
-    <p><small><?php echo "Published on " . $row[5] ?></small></p>
-      <p><small><?php echo "Published by " . $row[7] ?></small></p>
-    <hr />
-<?php
-    }
-  }
-
-    /*$sql = "SELECT * FROM blogPosts ORDER BY id DESC";
-    $result = mysqli_query($dbCon, $sql);
-
-    while ($row = mysqli_fetch_array($result)) {
-      $title = $row['title'];
-      $subtitle = $row['subtitle'];
-      $post = $row['post'];
-      $postDate = $row['postDate'];
-      $owner_id = $row['owner_id'];*/
-
-    catch(PDOException $e)
-        {
-        echo "Error: " . $e->getMessage();
-        }
-    $conn = null;
-    ?>
-
-    <br />
-    <a href="admin2.php">Click here to post another blog!</a>
-    <br />
-    
-    <?php
-
-    include_once("Comments.php");
-
-    ?>
-
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Blog</title>
+    <!--<link rel="stylesheet" href="style/normalize.css">
+    <link rel="stylesheet" href="style/main.css"> -->
+</head>
+<body>
 
     
-  </body>
-  </html>
+
+        <h1>Blog</h1>
+        <hr /> 
+
+        <?php
+            try {
+
+                $stmt = $conn->query('SELECT postID, postTitle, postDesc, postDate FROM blogPosts ORDER BY postID DESC');
+                while($row = $stmt->fetch()){
+
+                    echo '<div>';
+                        echo '<h1><a href="viewpost.php?id='.$row['postID'].'">'.$row['postTitle'].'</a></h1>';
+                        echo '<p>Posted on '.date('jS M Y H:i:s', strtotime($row['postDate'])).'</p>';
+                        echo '<p>'.$row['postDesc'].'</p>';
+                        echo '<p><a href="viewpost.php?id='.$row['postID'].'">Read the complete blog here!</a></p>';
+                    echo '</div>';
+
+                }
+
+            } catch(PDOException $e) {
+                echo $e->getMessage();
+            }
+        ?>
+
+   
+
 <?php 
-include('Templates/EditorPageFooter.php');
+require_once('Templates/EditorPageFooter.php');
 ?>
+</body>
+</html>
+
