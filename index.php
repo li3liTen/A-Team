@@ -1,4 +1,6 @@
 <?php
+
+include('Templates/EditorPageHeader.php'); 
   error_reporting(E_ALL & ~E_NOTICE); //report all errors except E_NOTICE
 ?>
 
@@ -29,6 +31,7 @@
     <h2><?php echo $row[1]; ?> - <small><?php echo $row[2]; ?></small></h2>
     <p><?php echo $row[3]; ?></p>
     <p><small><?php echo "Published on " . $row[5] ?></small></p>
+      <p><small><?php echo "Published by " . $row[7] ?></small></p>
     <hr />
 <?php
     }
@@ -65,3 +68,6 @@
     
   </body>
   </html>
+<?php 
+include('Templates/EditorPageFooter.php');
+?>

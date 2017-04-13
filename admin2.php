@@ -1,4 +1,6 @@
-<?php
+
+<?php require "PHP-Login\login\loginheader.php"; 
+
 error_reporting(E_ALL & ~E_NOTICE); //report all errors except E_NOTICE
 session_start();
 
@@ -29,12 +31,13 @@ include_once("connection.php");
 try {
       $conn = new PDO($dsn, $user, $password, $options);
       $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-      $stmt = $conn->prepare("INSERT INTO blogPosts (title, subtitle, post) VALUES (:title, :subtitle, :post)"); //preparing a query
+      $stmt = $conn->prepare("INSERT INTO blogPosts (title, subtitle, post,username) VALUES (:title, :subtitle, :post, :username)"); //preparing a query
 
       if($_POST['submit']) {
       $stmt->bindParam(':title', $_POST['title']);
       $stmt->bindParam(':subtitle', $_POST['subtitle']);
       $stmt->bindParam(':post', $_POST['post']);
+      $stmt->bindParam('username',$_SESSION['username']);
 
       $stmt->execute();
       //echo "Blog entry posted";
@@ -67,7 +70,6 @@ catch(Exception $e) {
 };*/
             
         } else { ?>
-    <h1>Welcome, <?php echo $username; ?></h1>
 
     
     <form method="post" action="admin2.php">
