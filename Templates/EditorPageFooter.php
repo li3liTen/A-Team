@@ -110,15 +110,17 @@
 			<div class="w3l_tags">
 					<h3>Tags</h3>
 					<ul class="tag">
-						<li><a href="singlepage.html">Fashion</a></li>
-						<li><a href="singlepage.html">Photography</a></li>
-						<li><a href="singlepage.html">Artist</a></li>
-						<li><a href="singlepage.html">Music</a></li>
-						<li><a href="singlepage.html">Shop</a></li>
-						<li><a href="singlepage.html">Corporate</a></li>
-						<li><a href="singlepage.html">Personal</a></li>
-						<li><a href="singlepage.html">Restaurant</a></li>
-						<li><a href="singlepage.html">Business</a></li>
+						<li><a href="index.html">Home</a></li>
+					<li><a href="about.html">About Us</a></li>
+					<li><a href="lifestyle.html">Pampering</a></li>
+					<li><a href="fashion.html">Travel</a></li>
+                                        <li><a href="icons.html">Places to Eat</a></li>
+                                        <li><a href="typo.html">Favourite Drinks</a></li>
+                                        <li><a href="features.html">High Tea Hotspots</a></li>
+                                        <li><a href="photography.html">Furry Friends</a></li>
+					<li><a href="quiz.html">How Much GrandmaLife Are You Living?</a></li>
+                                        <li><a href="Login.html">Login</a></li>
+					<li><a href="contact.html">Contact</a></li>
 					</ul>
 				</div>
 			</div>

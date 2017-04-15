@@ -42,12 +42,12 @@
 					  <ul class="dropdown-menu">
 					  <li><a href="icons.html">Places to Eat</a></li>
 						<li><a href="typo.html">Favourite Drinks</a></li>
-                                                <li><a href="typo.html">High Tea Hot Spots</a></li>
+                                                <li><a href="features.html">High Tea Hot Spots</a></li>
 
 					  </ul>
 					</li>
                                         <li><a href="photography.html">Furry Friends</a></li>
-					<li><a href="photography.html">Movies and Music</a></li>
+					<li><a href="quiz.php">How much Grandmalife are you living?</a></li>
                                         <li><a href="Login.php">Login</a></li>
 					<li><a href="contact.html">Contact</a></li>
 				  </ul>
