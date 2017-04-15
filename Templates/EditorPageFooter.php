@@ -121,6 +121,8 @@
 					<li><a href="quiz.html">How Much GrandmaLife Are You Living?</a></li>
                                         <li><a href="Login.html">Login</a></li>
 					<li><a href="contact.html">Contact</a></li>
+                                        <li><a href="feedback.php">Feedback</a></li>
+                                        <li><a href="game.php">Games</a></li>
 					</ul>
 				</div>
 			</div>

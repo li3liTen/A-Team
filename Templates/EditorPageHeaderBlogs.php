@@ -112,6 +112,8 @@ $(document).ready(function(){
 					<li><a href="quiz.php">How much GrandmaLife are you living?</a></li>
 					<li><a href="login.php">Login</a></li>
 					<li><a href="contact.php">Contact</a></li>
+                                        <li><a href="feedback.php">Feedback</a></li>
+                                        <li><a href="game.php">Games</a></li>
 				  </ul>
 				</div><!-- /.navbar-collapse -->
 				<div class="w3_agile_login">

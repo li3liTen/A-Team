@@ -50,6 +50,8 @@
 					<li><a href="quiz.php">How much Grandmalife are you living?</a></li>
                                         <li><a href="Login.php">Login</a></li>
 					<li><a href="contact.html">Contact</a></li>
+                                        <li><a href="feedback.php">Feedback</a></li>
+                                        <li><a href="game.php">Games</a></li>
 				  </ul>
 				</div><!-- /.navbar-collapse -->
 				<div class="w3_agile_login">
