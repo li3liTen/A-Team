@@ -7,7 +7,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Fashion Blog a Blogging Category Bootstrap Responsive Website Template | Single Page :: w3layouts</title>    
+<title>#GrandmaLife</title>    
 <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all" /><!-- fontawesome -->     
 <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" /><!-- Bootstrap stylesheet -->
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
