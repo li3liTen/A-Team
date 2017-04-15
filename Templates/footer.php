@@ -27,7 +27,8 @@
 		<div class="container">
 			<div class="w3agile-list">
 				<ul>
-					<li><a href="index.html">Home</a></li>
+
+					<!--<li><a href="index.html">Home</a></li>
 					<li><a href="about.html">About Us</a></li>
 					<li><a href="lifestyle.html">Pampering</a></li>
 					<li><a href="fashion.html">Travel</a></li>
@@ -37,8 +38,21 @@
                                         <li><a href="photography.html">Furry Friends</a></li>
 					<li><a href="quiz.html">How Much GrandmaLife Are You Living?</a></li>
                                         <li><a href="Login.html">Login</a></li>
-					<li><a href="contact.html">Contact</a></li>
-				</ul>
+					<li><a href="contact.html">Contact</a></li>-->
+				
+
+					<li><a href="home.php">Home</a></li>
+                                        <li><a class="active" href="index.php">All Blogs</a></li>
+					<li><a href="about.php">About Us</a></li>
+					<li class="pampering<?php if ($section == "pampering") {echo " on"; } ?>"><a href="index.php?cat=pampering">Pampering</a></li>
+					<li class="travel<?php if ($section == "travel") {echo " on"; } ?>"><a href="index.php?cat=travel">Travel</a></li>
+                                        <li class="furryfriends<?php if ($section == "furryfriends") {echo " on"; } ?>"><a href="index.php?cat=furryfriends">Furry Friends</a></li>
+					<li class="moviesandmusic<?php if ($section == "moviesandmusic") {echo " on"; } ?>"><a href="index.php?cat=moviesandmusic">Movies and Music</a></li>
+					<li><a href="quiz.php">How much GrandmaLife are you living?</a></li>
+					<li><a href="login.php">Login</a></li>
+					<li><a href="contact.php">Contact</a></li>
+                                
+                        </ul>
 			</div>
 			<div class="agileinfo">
 				<p>© 2017 A GrandmaLife Production . All Rights Reserved . Design by <a href="http://w3layouts.com/">GrandmaLife</a></p>

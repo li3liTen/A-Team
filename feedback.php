@@ -51,9 +51,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 
-include "Templates/EditorPageHeader.php";
+include "Templates/EditorPageHeaderMain.php";
 $pageTitle = "Tell us what you think";
-$section = "suggest";
+$section = null;
 
 ?>
 

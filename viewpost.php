@@ -4,7 +4,7 @@
 ?>
 
 <?php require('includes/config.php');
-include('Templates/EditorPageHeader.php');
+include('Templates/EditorPageHeaderBlogs.php');
 
 $stmt = $conn->prepare('SELECT postID, postTitle, postCont, postDate FROM blogPosts WHERE postID = :postID');
 $stmt->execute(array(':postID' => $_GET['id']));
