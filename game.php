@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-
+      <?php include "Templates/editorpageheaderblogs.php"; ?>
+        
 <html>
     <head>
         <meta charset="UTF-8"> 
@@ -10,8 +11,7 @@
           
     </head>
     <body>
-        <?php include "Templates/header.php"; ?>
-        
+  
         <div style="text-align:center;">
             <img src="images/grandmagame.png" width="320" height="230"/>
         </div>
@@ -34,11 +34,11 @@
         </div>
 
             
-        <?php include "Templates/footer.php"; ?>
+      
     </body>
 </html>
 
-
+  <?php include "Templates/editorpagefooter.php"; ?>
 
 
 

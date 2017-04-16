@@ -1,11 +1,12 @@
 <?php //include config
-require_once('includes/config.php');
-require_once('Templates/EditorPageHeaderBlogs.php');
 
+$pageTitle="Post Your Blog";
+//require_once('includes/config.php');
+require_once('Templates/editorpageheader.php');
 //if not logged in redirect to login page
 //if(!$user->is_logged_in()){ header('Location: login.php'); }
 ?>
-<!doctype html>
+
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -27,32 +28,30 @@ require_once('Templates/EditorPageHeaderBlogs.php');
 <body>
 
 <div id="wrapper">
-
+</html>
     <?php include('Admin/menu.php');?>
+<html>
     <p><a href="./">Blog Admin Index</a></p>
 
     <h2>Add Post</h2>
-
+</html>
     <?php
     
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $postTitle = trim(filter_input(INPUT_POST,"postTitle",FILTER_SANITIZE_STRING));
     $postDesc = trim(filter_input(INPUT_POST,"postDesc",FILTER_SANITIZE_STRING));
     $postCont = trim(filter_input(INPUT_POST,"postCont",FILTER_SANITIZE_SPECIAL_CHARS));
+    }
 
-    if ($postTitle == "" || $postDesc == "" || $postCont == "") {
-            echo "Please fill in the required fields: Title, Description and Post";
-            exit;
-        } else {
         
 
     //if form has been submitted process it
-    if(isset($_POST['submit'])){
+    /*if(isset($_POST['submit'])){
 
         $_POST = array_map( 'stripslashes', $_POST );
 
         //collect form data
-        extract($_POST);
+    extract($_POST);;
 
         //very basic validation
         /*if($postTitle ==''){
@@ -67,56 +66,32 @@ require_once('Templates/EditorPageHeaderBlogs.php');
             $error[] = 'Please enter the content.';
         } 
 
-        if(!isset($error)){*/
+        if(!isset($error)){*/  
+?> 
+<html>     
+    <html>     
+    <form action="upload.php" method='post'enctype="multipart/form-data" >
 
-            try {
+            <h2>Upload Accompanying Image</h2>
+            
+              <input type="hidden" 
+	   name="MAX_FILE_SIZE" 
+         value="10000000" />
 
-                //insert into database
-                $stmt = $conn->prepare('INSERT INTO blogPosts (postTitle,postDesc,postCont,postDate) VALUES (:postTitle, :postDesc, :postCont, :postDate)') ;
-                $stmt->execute(array(
-                    ':postTitle' => $postTitle,
-                    ':postDesc' => $postDesc,
-                    ':postCont' => $postCont,
-                    ':postDate' => date('Y-m-d H:i:s')
-                ));
-
-                //redirect to index page
-                header('Location: index.php?action=added');
-                exit;
-
-            } catch(PDOException $e) {
-                echo $e->getMessage();
-            }
-
-        }
-
-    }
-    }
-
-    //check for any errors
-   /* if(isset($error)){
-        foreach($error as $error){
-            echo '<p class="error">'.$error.'</p>';
-        }
-    }*/
-    ?>
-
-    <form action='' method='post'>
-
-        <p><label>Title</label><br />
-        <input type='text' name='postTitle'></p>
+  <input type="file" name="myfile" />
+  
+      <p><label>Title</label><br />
+        <input type='text' name='Title' required></p>
 
         <p><label>Description</label><br />
-        <textarea name='postDesc' cols='60' rows='10'></textarea></p>
+        <input name='postDesc'input type='text'></textarea></p>
 
         <p><label>Content</label><br />
-        <textarea name='postCont' cols='60' rows='10'></textarea></p>
+        <textarea name='post' input type='text'></textarea></p>
 
-        <p><input type='submit' name='submit' value='Submit'></p>
+        <p><input type='submit'></p>
 
     </form>
-
 </div> 
-<?php 
-include('Templates/footer2.php');
-?>
+</html>
+<?php include "editorpagefooter.php"; ?>

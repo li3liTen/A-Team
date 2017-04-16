@@ -66,13 +66,8 @@ $(document).ready(function(){
 					<p>Reminding you how to be YOU!</p>
 				</div>
 				<div class="w3ls-social-icons">
-					<a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
-					<a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
-					<a class="pinterest" href="#"><i class="fa fa-pinterest-p"></i></a>
-					<a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a>
-					<a class="linkedin" href="#"><i class="fa fa-google-plus"></i></a>
-					<a class="linkedin" href="#"><i class="fa fa-rss"></i></a>
-					<a class="linkedin" href="#"><i class="fa fa-behance"></i></a>
+					<a class="facebook" href="https://www.facebook.com/GrandmaLife-111729779382104/"><i class="fa fa-facebook"></i></a>
+					<a class="twitter" href="https://twitter.com/TeamGrandmaLife"><i class="fa fa-twitter"></i></a>
 				</div>
 			</div>
 		</div>

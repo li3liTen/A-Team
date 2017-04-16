@@ -1,5 +1,5 @@
 <?php 
-
+include "templates/editorpageheaderblogs.php" ?>
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = trim(filter_input(INPUT_POST, "name", FILTER_SANITIZE_STRING));
     $email = trim(filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL));
@@ -62,9 +62,6 @@ $section = null;
   <head>
       <meta charset="UTF-8">
       <title>Your Feedback</title>
-        <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css" media="all" /><!-- fontawesome -->
-        <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" /><!-- Bootstrap stylesheet -->
-        <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
   </head>
   <body>
 

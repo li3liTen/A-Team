@@ -1,4 +1,7 @@
 
+<?php 
+$pageTitle ="Login";
+include "templates/editorpageheader.php" ?>
 
 <html lang="en">
   <head>
@@ -16,4 +19,4 @@
     </div> <!-- /container -->
   </body>
 </html>
-<?php require "PHP-Login/login/loginheader.php"; ?>
+<?php require "templates/editorpagefooter.php"; ?>
