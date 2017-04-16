@@ -83,11 +83,7 @@ $(document).ready(function(){
 				<div class="single-left">
 				<div class="single-left1">
 					<img src="images/Logocopy.jpg" alt=" " class="img-responsive" />
-					<h3>Post Your Blog Here</h3>
-					<ul>
-						<li><span class="glyphicon glyphicon-user" aria-hidden="true"></span><a href="#">Michael Smith</a></li>
-					
-					</ul>
+
 				
 				</div>
 				

@@ -4,31 +4,67 @@ const InputKey = 'myfile';
 
 function upload_file() {
 	if (empty($_FILES[InputKey])) {	//handle error
-		throw new Exception("No file included");
+		die("File Missing!");
 	}
 
 	if ($_FILES[InputKey]['error'] > 0) { //handle error
-		throw new Exception("File Empty");;
+		die("Handle the error! " . $_FILES[InputKey]['error']);
 	}
 
 
 	if (!in_array($_FILES[InputKey]['type'], AllowedTypes)) {
-		throw new Exception("Wrong Type");
+		die("Handle File Type Not Allowed: " . $_FILES[InputKey]['type']);
 	}
 
 
 	$tmpFile = $_FILES[InputKey]['tmp_name'];
 
-	//DOMAIN SPECIFIC:  eg., move the file
-	$dstFile = 'images/blogposts/' . $_FILES[InputKey]['name'];
+	$dstFile = 'uploads/' . $_FILES[InputKey]['name'];
 
 	if (!move_uploaded_file($tmpFile, $dstFile)) {
-		throw new Exception("error");
+		die("Handle Error");
 	}
 		
-	//Clean up the temp file
 	if (file_exists($tmpFile)) {
 		unlink($tmp); 
 	}
 };
+
+const DB_DSN = 'mysql:host=localhost;dbname=login';
+const DB_USER = 'root';
+const DB_PASS = '';
+
+try {							
+      $pdo = new PDO(DB_DSN, DB_USER, DB_PASS);
+} catch (PDOException $e) {
+	die($e->getMessage()); 
+}
+
+
+                //insert into databaset
+     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                $conn="INSERT INTO blogPosts (Title,subtitle,post) VALUES ('".$_POST["Title"]."','".$_POST["postDesc"]."','".$_POST["post"]."')";
+$pdo->query($conn);
+         if ($pdo->query($conn)) {
+               echo "It worked!";
+                exit;
+         }
+         
+         else {
+
+                echo $e->getMessage();
+            }
+
+
+
+ 
+ 
+
+    //check for any errors
+   /* if(isset($error)){
+        foreach($error as $error){
+            echo '<p class="error">'.$error.'</p>';
+        }
+    }*/
+    ?>
 

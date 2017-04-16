@@ -1,5 +1,27 @@
 <?php require('includes/config.php'); 
-require_once('Templates/EditorPageHeader.php');?>
+
+$pageTitle = "All blogs";
+$section = null;
+
+if (isset($_GET["cat"])) {
+    if ($_GET["cat"] == "pampering") {
+    $pageTitle = "Pampering";
+    $section = "pampering";
+  } else if ($_GET["cat"] == "travel") {
+    $pageTitle = "Travel";
+    $section = "travel";
+  } else if ($_GET["cat"] == "furryfriends") {
+    $pageTitle = "Furry Friends";
+    $section = "furryfriends";
+  } else if ($_GET["cat"] == "moviesandmusic") {
+    $pageTitle = "Movies And Music";
+    $section = "moviesandmusic";
+  }
+}
+
+
+
+require_once('Templates/EditorPageHeaderBlogs.php');?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,7 +60,7 @@ require_once('Templates/EditorPageHeader.php');?>
    
 
 <?php 
-require_once('Templates/EditorPageFooter.php');
+include('Templates/EditorPageFooter.php');
 ?>
 </body>
 </html>
