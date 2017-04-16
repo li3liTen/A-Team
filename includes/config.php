@@ -3,7 +3,7 @@ ob_start();
 session_start();
 
 //database credentials
-$dsn = "mysql:host=localhost;dbname=grandmalifev2";
+$dsn = "mysql:host=localhost;dbname=login";
         $user = "root";
         $password = "";
         $options = null;
