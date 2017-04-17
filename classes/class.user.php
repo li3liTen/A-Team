@@ -9,8 +9,8 @@ class User{
     }
 
 
-    public function is_logged_in(){
-        if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true){
+    public function is_logged_in($username){
+        if(isset($username)){
             return true;
         }
     }
@@ -19,7 +19,7 @@ class User{
 
     try {
 
-        $stmt = $this->_conn->prepare('SELECT password FROM blogMembers WHERE username = :username');
+        $stmt = $this->_conn->prepare('SELECT password FROM Members WHERE username = :username');
         $stmt->execute(array('username' => $username));
         
         $row = $stmt->fetch();
@@ -28,4 +28,6 @@ class User{
     } catch(PDOException $e) {
         echo '<p class="error">'.$e->getMessage().'</p>';
     }
+}
+
 }
