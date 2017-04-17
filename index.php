@@ -3,7 +3,7 @@
 $pageTitle = "All blogs";
 $section = null;
 
-if (isset($_GET["cat"])) {
+/*if (isset($_GET["cat"])) {
     if ($_GET["cat"] == "pampering") {
     $pageTitle = "Pampering";
     $section = "pampering";
@@ -19,7 +19,7 @@ if (isset($_GET["cat"])) {
   }
 }
 
-
+*/
 
 require_once('Templates/EditorPageHeaderBlogs.php');?>
 <!DOCTYPE html>
@@ -40,13 +40,13 @@ require_once('Templates/EditorPageHeaderBlogs.php');?>
         <?php
             try {
 
-                $stmt = $conn->query('SELECT postID, postTitle, postDesc, postDate FROM blogPosts ORDER BY postID DESC');
+                $stmt = $conn->query('SELECT postID, Title, subtitle, postDate FROM blogPosts ORDER BY postID DESC');
                 while($row = $stmt->fetch()){
 
                     echo '<div>';
-                        echo '<h1><a href="viewpost.php?id='.$row['postID'].'">'.$row['postTitle'].'</a></h1>';
+                        echo '<h1><a href="viewpost.php?id='.$row['postID'].'">'.$row['Title'].'</a></h1>';
                         echo '<p>Posted on '.date('jS M Y H:i:s', strtotime($row['postDate'])).'</p>';
-                        echo '<p>'.$row['postDesc'].'</p>';
+                        echo '<p>'.$row['subtitle'].'</p>';
                         echo '<p><a href="viewpost.php?id='.$row['postID'].'">Read the complete blog here!</a></p>';
                     echo '</div>';
 

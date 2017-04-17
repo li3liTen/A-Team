@@ -68,11 +68,6 @@ $(document).ready(function(){
 				<div class="w3ls-social-icons">
 					<a class="facebook" href="#"><i class="fa fa-facebook"></i></a>
 					<a class="twitter" href="#"><i class="fa fa-twitter"></i></a>
-					<a class="pinterest" href="#"><i class="fa fa-pinterest-p"></i></a>
-					<a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a>
-					<a class="linkedin" href="#"><i class="fa fa-google-plus"></i></a>
-					<a class="linkedin" href="#"><i class="fa fa-rss"></i></a>
-					<a class="linkedin" href="#"><i class="fa fa-behance"></i></a>
 				</div>
 			</div>
 		</div>
@@ -95,9 +90,9 @@ $(document).ready(function(){
 					<li><a href="home.php">Home</a></li>
                                         <li><a class="active" href="index.php">All Blogs</a></li>
 					<li><a href="about.php">About Us</a></li>
-					<li><a href="index.php?cat=pampering">Pampering</a></li>
+					<li class="pampering<?php if ($section == "pampering") {echo " on"; } ?>"><a href="category.php?cat=pampering">Pampering</a></li>
 
-					<li><a href="index.php?cat=travel">Travel</a></li>
+					<li class="travel<?php if ($section == "travel") {echo " on"; } ?>"><a href="category.php?cat=travel">Travel</a></li>
                                          <!--<li class="dropdown">
 					  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Food and Drink <span class="caret"></span></a>
 					  <ul class="dropdown-menu">
@@ -107,8 +102,8 @@ $(document).ready(function(){
 
 					  </ul>
 					</li>-->
-                                        <li><a href="index.php?cat=furryfriends">Furry Friends</a></li>
-					<li><a href="index.php?cat=moviesandmusic">Movies and Music</a></li>
+          <li class="furryfriends<?php if ($section == "furryfriends") {echo " on"; } ?>"><a href="category.php?cat=furryfriends">Furry Friends</a></li>
+					<li class="moviesandmusic<?php if ($section == "moviesandmusic") {echo " on"; } ?>"><a href="category.php?cat=moviesandmusic">Movies and Music</a></li>
 					<li><a href="quiz.php">How much GrandmaLife are you living?</a></li>
 					<li><a href="login.php">Login</a></li>
 					<li><a href="contact.php">Contact</a></li>

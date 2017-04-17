@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-      <?php include "Templates/EditorPageHeaderMain.php"; ?>
+      <?php include "Templates/editorpageheaderblogs.php"; ?>
         
 <html>
     <head>
@@ -38,7 +38,7 @@
     </body>
 </html>
 
-  <?php include "Templates/footer.php"; ?>
+  <?php include "Templates/editorpagefooter.php"; ?>
 
 
 

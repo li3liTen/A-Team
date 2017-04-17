@@ -1,34 +1,40 @@
 <?php
+$section ="Upload";
+require "loginheader.php";
+$pageTitle = "Upload";
+include ('templates/EditorPageHeaderMain.php');
+
 const AllowedTypes = ['image/jpeg', 'image/jpg'];
 const InputKey = 'myfile';
+;
 
-function upload_file() {
 	if (empty($_FILES[InputKey])) {	//handle error
-		die("File Missing!");
+		throw new Exception("No file included");
 	}
 
 	if ($_FILES[InputKey]['error'] > 0) { //handle error
-		die("Handle the error! " . $_FILES[InputKey]['error']);
+		throw new Exception("File Empty");;
 	}
 
 
 	if (!in_array($_FILES[InputKey]['type'], AllowedTypes)) {
-		die("Handle File Type Not Allowed: " . $_FILES[InputKey]['type']);
+		throw new Exception("Wrong Type");
 	}
 
 
 	$tmpFile = $_FILES[InputKey]['tmp_name'];
 
-	$dstFile = 'uploads/' . $_FILES[InputKey]['name'];
+	//DOMAIN SPECIFIC:  eg., move the file
+	$dstFile = 'images/uploads/' . $_FILES[InputKey]['name'];
 
 	if (!move_uploaded_file($tmpFile, $dstFile)) {
-		die("Handle Error");
+		throw new Exception("error");
 	}
 		
 	if (file_exists($tmpFile)) {
 		unlink($tmp); 
 	}
-};
+      
 
 const DB_DSN = 'mysql:host=localhost;dbname=login';
 const DB_USER = 'root';
@@ -40,13 +46,11 @@ try {
 	die($e->getMessage()); 
 }
 
-
-                //insert into databaset
      $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                $conn="INSERT INTO blogPosts (Title,subtitle,post) VALUES ('".$_POST["Title"]."','".$_POST["postDesc"]."','".$_POST["post"]."')";
+                $conn="INSERT INTO blogposts (title,subtitle,post,picture,username,category) VALUES ('".$_POST["title"]."','".$_POST["subtitle"]."','".$_POST["post"]."','".$dstFile."', '".$_SESSION['username']."','".$_POST['category']."')";
 $pdo->query($conn);
          if ($pdo->query($conn)) {
-               echo "It worked!";
+               echo "It worked!  Your blog has been uploaded!";
                 exit;
          }
          
@@ -66,5 +70,7 @@ $pdo->query($conn);
             echo '<p class="error">'.$error.'</p>';
         }
     }*/
+            include ('Templates/EditorPagefooter.php');
+            
     ?>
 
