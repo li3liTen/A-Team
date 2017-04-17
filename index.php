@@ -1,67 +1,22 @@
-<?php require('includes/config.php'); 
+<?php require "login/loginheader.php"; ?>
 
-$pageTitle = "All blogs";
-$section = null;
-
-if (isset($_GET["cat"])) {
-    if ($_GET["cat"] == "pampering") {
-    $pageTitle = "Pampering";
-    $section = "pampering";
-  } else if ($_GET["cat"] == "travel") {
-    $pageTitle = "Travel";
-    $section = "travel";
-  } else if ($_GET["cat"] == "furryfriends") {
-    $pageTitle = "Furry Friends";
-    $section = "furryfriends";
-  } else if ($_GET["cat"] == "moviesandmusic") {
-    $pageTitle = "Movies And Music";
-    $section = "moviesandmusic";
-  }
-}
-
-
-
-require_once('Templates/EditorPageHeaderBlogs.php');?>
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="utf-8">
-    <title>Blog</title>
-    <!--<link rel="stylesheet" href="style/normalize.css">
-    <link rel="stylesheet" href="style/main.css"> -->
-</head>
-<body>
-
-    
-
-        <h1>Blog</h1>
-        <hr /> 
-
-        <?php
-            try {
-
-                $stmt = $conn->query('SELECT postID, Title, subtitle, postDate FROM blogPosts ORDER BY postID DESC');
-                while($row = $stmt->fetch()){
-
-                    echo '<div>';
-                        echo '<h1><a href="viewpost.php?id='.$row['postID'].'">'.$row['Title'].'</a></h1>';
-                        echo '<p>Posted on '.date('jS M Y H:i:s', strtotime($row['postDate'])).'</p>';
-                        echo '<p>'.$row['subtitle'].'</p>';
-                        echo '<p><a href="viewpost.php?id='.$row['postID'].'">Read the complete blog here!</a></p>';
-                    echo '</div>';
-
-                }
-
-            } catch(PDOException $e) {
-                echo $e->getMessage();
-            }
-        ?>
-
-   
-
-<?php 
-include('Templates/EditorPageFooter.php');
-?>
-</body>
+    <title>Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="css/main.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-signin">
+        <div class="alert alert-success">You have been <strong>successfully logged in</strong>.</div>
+        <a href="login/logout.php" class="btn btn-default btn-lg btn-block">Logout</a>
+      </div>
+    </div> <!-- /container -->
+  </body>
 </html>
-
+<?php require "login/loginheader.php"; ?>
