@@ -1,40 +1,36 @@
 <?php
-$section ="Upload";
-require "loginheader.php";
-$pageTitle = "Upload";
-include ('templates/EditorPageHeaderMain.php');
-
 const AllowedTypes = ['image/jpeg', 'image/jpg'];
 const InputKey = 'myfile';
-;
 
+require "PHP-Login/login/loginheader.php"; 
+
+function upload_file() {
 	if (empty($_FILES[InputKey])) {	//handle error
-		throw new Exception("No file included");
+		die("File Missing!");
 	}
 
 	if ($_FILES[InputKey]['error'] > 0) { //handle error
-		throw new Exception("File Empty");;
+		die("Handle the error! " . $_FILES[InputKey]['error']);
 	}
 
 
 	if (!in_array($_FILES[InputKey]['type'], AllowedTypes)) {
-		throw new Exception("Wrong Type");
+		die("Handle File Type Not Allowed: " . $_FILES[InputKey]['type']);
 	}
 
 
 	$tmpFile = $_FILES[InputKey]['tmp_name'];
 
-	//DOMAIN SPECIFIC:  eg., move the file
-	$dstFile = 'images/uploads/' . $_FILES[InputKey]['name'];
+	$dstFile = 'uploads/' . $_FILES[InputKey]['name'];
 
 	if (!move_uploaded_file($tmpFile, $dstFile)) {
-		throw new Exception("error");
+		die("Handle Error");
 	}
 		
 	if (file_exists($tmpFile)) {
 		unlink($tmp); 
 	}
-      
+};
 
 const DB_DSN = 'mysql:host=localhost;dbname=login';
 const DB_USER = 'root';
@@ -46,11 +42,13 @@ try {
 	die($e->getMessage()); 
 }
 
+
+                //insert into databaset
      $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                $conn="INSERT INTO blogposts (title,subtitle,post,picture,username,category) VALUES ('".$_POST["title"]."','".$_POST["subtitle"]."','".$_POST["post"]."','".$dstFile."', '".$_SESSION['username']."','".$_POST['category']."')";
-$pdo->query($conn);
+                $conn="INSERT INTO logIn.blogPosts (Title,username,post) VALUES ('".$_POST["subject"]."','".$_SESSION["username"]."','".$_POST["blogpost"]."')";
+       //$pdo->query($conn);
          if ($pdo->query($conn)) {
-               echo "It worked!  Your blog has been uploaded!";
+               echo "It worked!";
                 exit;
          }
          
@@ -70,7 +68,5 @@ $pdo->query($conn);
             echo '<p class="error">'.$error.'</p>';
         }
     }*/
-            include ('Templates/EditorPagefooter.php');
-            
     ?>
 

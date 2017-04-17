@@ -1,9 +1,8 @@
 <?php //include config
 
 $pageTitle="Post Your Blog";
-require "loginheader.php"; 
 //require_once('includes/config.php');
-require_once('Templates/editorpageheaderblogs.php');
+require_once('Templates/editorpageheader.php');
 //if not logged in redirect to login page
 //if(!$user->is_logged_in()){ header('Location: login.php'); }
 ?>
@@ -71,8 +70,6 @@ require_once('Templates/editorpageheaderblogs.php');
 ?> 
 <html>     
     <html>     
-        
-        <?php echo "Welcome ". $_SESSION['username']; ?>
     <form action="upload.php" method='post'enctype="multipart/form-data" >
 
             <h2>Upload Accompanying Image</h2>

@@ -3,7 +3,7 @@
 $pageTitle = "All blogs";
 $section = null;
 
-/*if (isset($_GET["cat"])) {
+if (isset($_GET["cat"])) {
     if ($_GET["cat"] == "pampering") {
     $pageTitle = "Pampering";
     $section = "pampering";
@@ -19,7 +19,7 @@ $section = null;
   }
 }
 
-*/
+
 
 require_once('Templates/EditorPageHeaderBlogs.php');?>
 <!DOCTYPE html>

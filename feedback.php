@@ -1,5 +1,6 @@
 <?php 
-include "templates/editorpageheaderblogs.php" ?>
+
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = trim(filter_input(INPUT_POST, "name", FILTER_SANITIZE_STRING));
     $email = trim(filter_input(INPUT_POST, "email", FILTER_SANITIZE_EMAIL));
@@ -48,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 
-include "Templates/header.php";
+include "Templates/EditorPageHeaderMain.php";
 
 
 $pageTitle = "Feedback";
