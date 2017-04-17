@@ -67,11 +67,11 @@ require_once('Templates/EditorPageHeaderBlogs.php');
             try {
 
                 //insert into database
-                $stmt = $conn->prepare('UPDATE blogPosts SET Title = :Title, subtitle = :subtitle, post = :post WHERE postID = :postID') ;
+                $stmt = $conn->prepare('UPDATE blogPosts SET postTitle = :postTitle, postDesc = :postDesc, postCont = :postCont WHERE postID = :postID') ;
                 $stmt->execute(array(
-                    ':Title' => $postTitle,
-                    ':subtitle' => $postDesc,
-                    ':post' => $postCont,
+                    ':postTitle' => $postTitle,
+                    ':postDesc' => $postDesc,
+                    ':postCont' => $postCont,
                     ':postID' => $postID
                 ));
 
@@ -100,7 +100,7 @@ require_once('Templates/EditorPageHeaderBlogs.php');
 
         try {
 
-            $stmt = $conn->prepare('SELECT postID, Title, subtitle, post FROM blogPosts WHERE postID = :postID') ;
+            $stmt = $conn->prepare('SELECT postID, postTitle, postDesc, postCont FROM blogPosts WHERE postID = :postID') ;
             $stmt->execute(array(':postID' => $_GET['id']));
             $row = $stmt->fetch(); 
 
@@ -114,13 +114,13 @@ require_once('Templates/EditorPageHeaderBlogs.php');
         <input type='hidden' name='postID' value='<?php echo $row['postID'];?>'>
 
         <p><label>Title</label><br />
-        <input type='text' name='postTitle' value='<?php echo $row['Title'];?>'></p>
+        <input type='text' name='postTitle' value='<?php echo $row['postTitle'];?>'></p>
 
         <p><label>Description</label><br />
-        <textarea name='postDesc' cols='60' rows='10'><?php echo $row['subtitle'];?></textarea></p>
+        <textarea name='postDesc' cols='60' rows='10'><?php echo $row['postDesc'];?></textarea></p>
 
         <p><label>Content</label><br />
-        <textarea name='postCont' cols='60' rows='10'><?php echo $row['post'];?></textarea></p>
+        <textarea name='postCont' cols='60' rows='10'><?php echo $row['postCont'];?></textarea></p>
 
         <p><input type='submit' name='submit' value='Update'></p>
 

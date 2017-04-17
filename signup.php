@@ -1,10 +1,11 @@
 <?php
+  session_start();
 
   if (isset($_SESSION['username'])) {
       session_start();
       session_destroy();
   }
-require "templates/editorpageheader.php";
+
 
 ?>
 <!DOCTYPE html>
@@ -12,35 +13,29 @@ require "templates/editorpageheader.php";
   <head>
     <meta charset="utf-8">
     <title>Signup</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="css/main.css" rel="stylesheet" media="screen">
   </head>
 
   <body>
-   
+    <div class="container">
 
-      <form id="usersignup" name="usersignup" method="post" action="PHP-Login\login\createuser.php">
+      <form class="form-signup" id="usersignup" name="usersignup" method="post" action="createuser.php">
         <h2 class="form-signup-heading">Register</h2>
-        <br>
-        Username
-          <br>
-        <input name="newuser" id="newuser" type="text" placeholder="Username" autofocus>
-          <br>
-     <p>   Email
-           <br><input name="email" id="email" type="text" placeholder="Email"></p>
+        <input name="newuser" id="newuser" type="text" class="form-control" placeholder="Username" autofocus>
+        <input name="email" id="email" type="text" class="form-control" placeholder="Email">
 <br>
-<p>Password
-      <br><input name="password1" id="password1" type="password"></p>
-<p>Repeat Password
-      <br><input name="password2" id="password2" type="password"></p>
-<br>
- Do you want to be a:
- <br>
-   <input type="radio" name="usertype" value="Moderator"> Moderator<br>
-  <input type="radio" name="usertype" value="normaluser"> Normal User<br>
-        <button name="Submit" id="submit" type="submit">Sign up</button>
+        <input name="password1" id="password1" type="password" class="form-control" placeholder="Password">
+        <input name="password2" id="password2" type="password" class="form-control" placeholder="Repeat Password">
+
+        <button name="Submit" id="submit" class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
 
         <div id="message"></div>
       </form>
 
+    </div> <!-- /container -->
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="//code.jquery.com/jquery.js"></script>
@@ -73,5 +68,3 @@ $( "#usersignup" ).validate({
 
   </body>
 </html>
-
-<?php include "editorpagefooter.php";
